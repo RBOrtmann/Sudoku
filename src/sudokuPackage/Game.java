@@ -3,12 +3,14 @@ package sudokuPackage;
 public class Game {
 	private Board initialBoard;
 	private Board answerBoard;
+	private boolean gameOver;
 	//private int mistakesCounter;
 	
 	/* Constructs SudokuGame with initial board and answer board */
 	public Game(Board init, Board ans) {
 		initialBoard = init;
 		answerBoard = ans;
+		gameOver = false;
 		//mistakesCounter = 0;		
 	}
 	
@@ -37,12 +39,16 @@ public class Game {
 	}
 	
 	/* Gets user input (changes cells, calls howAmIDoing, etc.) */
-	public void getUserInput(String s) {
+	public void getUserInput() {
 		
 	}
 
 	/* Saves current board to text file */
 	public void saveGame() {
 		
+	}
+	
+	public boolean isOver() {
+		return gameOver;
 	}
 }
