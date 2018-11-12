@@ -23,25 +23,24 @@ public class Game {
 	 the total number of cells that are wrong. This will eventually
 	 be expanded to specify which specific cells are wrong.*/
 	public void howAmIDoing() {
+		
 	}
 	
 	/* Populate random empty cell with the correct corresponding value
 	 from the answer board (5 total hints?) */
 	public void hint() {
-				
+		
 	}
 	
 	/* Handles what happens once the game is won
 	  (For now just prints a string with some statistics) */
 	public String hasWon() {
-		return null;
+		System.out.println("You Won, You had: " + mistakesCounter + " mistakes");
+		
 	}
 	
 	/* Keeps track of how long it takes to solve puzzle */
-	public long timer() {
-		return (System.currentTimeMillis() - startTime);
-	}
-	
+		
 	/* Gets user input (changes cells, calls howAmIDoing, etc.) */
 	public void getUserInput(Scanner scn) {
 		System.out.println("Choose a command: \n" + "\t1. Change a cell\n\t2. How am I doing?\n\t3. Hint");
@@ -61,6 +60,14 @@ public class Game {
 
 	/* Saves current board to text file */
 	public void saveGame() {
+		public void saveGame() throws IOException {
+			String Save = initialBoard.toString();
+			FileWriter fw = new FileWriter("SavedGame",false);
+			fw.write(Save);
+			//writes the time
+			
+			fw.close();
+			}	
 		
 	}
 	

@@ -40,4 +40,11 @@ public class Main {
 	public Board loadBoard() {
 		return null;
 	}
+	/*
+	 * public long timer() {
+	 * startTime = System.currentTimeMillis();
+		long startTime;
+		return (System.currentTimeMillis() - startTime);
+	
+	 */
 }
