@@ -28,7 +28,14 @@ public class Game {
 	/* Populate random empty cell with the correct corresponding value
 	 from the answer board (5 total hints?) */
 	public void hint() {
-				
+		for(int i = 0; i < 9; i++) {
+			for(int j = 0; j < 9; j++) {
+				if(j == 0) {
+					initialBoard.changeCell(i, j, answerBoard.getCell(i, j));
+					return;
+				}
+			}
+		}
 	}
 	
 	/* Handles what happens once the game is won
@@ -38,6 +45,7 @@ public class Game {
 	}
 	
 	/* Keeps track of how long it takes to solve puzzle */
+	//TODO this should go in Main
 	public long timer() {
 		return (System.currentTimeMillis() - startTime);
 	}
@@ -64,7 +72,13 @@ public class Game {
 		
 	}
 	
+	/* Returns game state */
 	public boolean isOver() {
 		return gameOver;
+	}
+	
+	/*Loops the game until it's over */
+	public void gameLoop() {
+		
 	}
 }
