@@ -31,6 +31,11 @@ public class Board {
 		return (cells[row][col]);
 	}
 	
+	/* Get all cells from board */
+	public int[][] getCells(){
+		return(cells);
+	}
+	
 	/* Changes a specific cell in the board array*/
 	public void changeCell(int row, int col, int num) {
 		cells[row][col] = num;
@@ -39,6 +44,12 @@ public class Board {
 	/* Prints a formatted version of the current board to the console
 	 (will later be supplanted with the GUI)*/
 	public void printBoard() {
+		for(int i = 0; i < cells.length; i++) {
+			for(int j = 0; j < cells.length; j++) {
+				System.out.print(cells[i][j]);
+			}
+			System.out.println();
+		}
 	}
 	
 	/* Compares two boards */

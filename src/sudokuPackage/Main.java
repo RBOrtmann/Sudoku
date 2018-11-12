@@ -21,7 +21,7 @@ public class Main {
 		Game newGame = new Game(initBoard, ansBoard);
 		
 		while(!newGame.isOver()) {
-			newGame.getUserInput(); // Loop to get user input until the game is over.
+			newGame.getUserInput(scnIn); // Loop to get user input until the game is over.
 		}
 		
 		scnIn.close();
