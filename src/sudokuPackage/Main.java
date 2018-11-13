@@ -23,7 +23,7 @@ public class Main {
 		while(!newGame.isOver()) {
 			newGame.getUserInput(scnIn); // Loop to get user input until the game is over.
 		}
-		
+		//s
 		scnIn.close();
 	}
 	
