@@ -18,7 +18,17 @@ public class BoardTest {
 
 	@Test
 	public void testGetCell() {
-		fail("Not yet implemented");
+		String boardtest = "000000000\n"
+				+ "050000000\n"
+				+ "000000000\n"
+				+ "000000000\n"
+				+ "000000000\n"
+				+ "000000000\n"
+				+ "000000000\n"
+				+ "000000000\n"
+				+ "000000000\n";
+		Board b = new Board(boardtest);
+		assertEquals(5,b.getCell(1, 1));
 	}
 
 	@Test
@@ -28,7 +38,19 @@ public class BoardTest {
 
 	@Test
 	public void testChangeCell() {
-		fail("Not yet implemented");
+//		String boardtest = "000000000/n"
+//				+ "050000000/n"
+//				+ "000000000/n"
+//				+ "000000000/n"
+//				+ "000000000/n"
+//				+ "000000000/n"
+//				+ "000000000/n"
+//				+ "000000000/n"
+//				+ "000000000/n";
+//		Board b = new Board(boardtest);
+		//b.changeCell(0, 0, 3);
+		//assertEquals(3,b.changeCell(0, 0, 3));
+		fail();
 	}
 
 	@Test
