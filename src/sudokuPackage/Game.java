@@ -35,7 +35,7 @@ public class Game {
 	/* Handles what happens once the game is won
 	  (For now just prints a string with some statistics) */
 	public String hasWon() {
-		
+		//s
 	}
 	
 	/* Keeps track of how long it takes to solve puzzle */
