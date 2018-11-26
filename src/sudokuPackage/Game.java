@@ -1,5 +1,7 @@
 package sudokuPackage;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Game {
@@ -41,7 +43,7 @@ public class Game {
 	/* Handles what happens once the game is won
 	  (For now just prints a string with some statistics) */
 	public String hasWon() {
-		//s
+		return "";
 	}
 	
 	/* Keeps track of how long it takes to solve puzzle */
@@ -68,17 +70,16 @@ public class Game {
 	}
 
 	/* Saves current board to text file */
-	public void saveGame() {
-		public void saveGame() throws IOException {
+
+     public void saveGame() throws IOException {
 			String Save = initialBoard.toString();
 			FileWriter fw = new FileWriter("SavedGame",false);
 			fw.write(Save);
 			//writes the time
 			
 			fw.close();
-			}	
+	}	
 		
-	}
 	
 	/* Returns game state */
 	public boolean isOver() {
