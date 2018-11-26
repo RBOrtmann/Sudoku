@@ -16,7 +16,7 @@ public class Game {
 		answerBoard = ans;
 		gameOver = false;
 		startTime = System.currentTimeMillis();
-		//mistakesCounter = 0;		
+		//mistakesCounter = 0;;	
 	}
 	
 	/* Compares current board to answer board and returns
