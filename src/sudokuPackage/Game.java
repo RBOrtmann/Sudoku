@@ -1,6 +1,5 @@
 package sudokuPackage;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
@@ -29,7 +28,18 @@ public class Game {
 	/* Populate random empty cell with the correct corresponding value
 	 from the answer board (5 total hints?) */
 	public void hint() {
+<<<<<<< HEAD
 		
+=======
+		for(int i = 0; i < 9; i++) {
+			for(int j = 0; j < 9; j++) {
+				if(j == 0) {
+					initialBoard.changeCell(i, j, answerBoard.getCell(i, j));
+					return;
+				}
+			}
+		}
+>>>>>>> branch 'master' of https://github.com/S1lentHurr1cane/Sudoku.git
 	}
 	
 	/* Handles what happens once the game is won
@@ -39,7 +49,15 @@ public class Game {
 	}
 	
 	/* Keeps track of how long it takes to solve puzzle */
+<<<<<<< HEAD
 		
+=======
+	//TODO this should go in Main
+	public long timer() {
+		return (System.currentTimeMillis() - startTime);
+	}
+	
+>>>>>>> branch 'master' of https://github.com/S1lentHurr1cane/Sudoku.git
 	/* Gets user input (changes cells, calls howAmIDoing, etc.) */
 	public void getUserInput(Scanner scn) {
 		System.out.println("Choose a command: \n" + "\t1. Change a cell\n\t2. How am I doing?\n\t3. Hint");
@@ -70,7 +88,13 @@ public class Game {
 		
 	}
 	
+	/* Returns game state */
 	public boolean isOver() {
 		return gameOver;
+	}
+	
+	/*Loops the game until it's over */
+	public void gameLoop() {
+		
 	}
 }

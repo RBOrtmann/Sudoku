@@ -1,5 +1,7 @@
 package sudokuPackage;
 
+import java.util.Arrays;
+
 public class Board {
 	private int[][] cells;
 	private static int NUM_ROWS = 9;
@@ -68,6 +70,8 @@ public class Board {
 	/* Returns the current board as a string */
 	@Override
 	public String toString() {
-		return null;
+		String s = Arrays.deepToString(cells);
+		s.replaceAll("\\D", "");
+		return s;
 	}
 }
