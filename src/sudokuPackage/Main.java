@@ -38,9 +38,12 @@ public class Main {
 	}
 	
 	/* Loads in-progress board from file */
-	public Board loadBoard() {
-		return null;
-	}
+	//load the board//
+		public Board loadBoard(String filename) throws IOException {
+			Board b = new Board(filename);
+			return b;
+		}
+	
 	/*
 	 * public long timer() {
 	 * startTime = System.currentTimeMillis();

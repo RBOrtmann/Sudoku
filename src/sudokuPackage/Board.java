@@ -1,5 +1,7 @@
 package sudokuPackage;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Arrays;
 
 public class Board {
@@ -53,6 +55,7 @@ public class Board {
 			System.out.println();
 		}
 	}
+	
 	
 	/* Compares two boards */
 	@Override
