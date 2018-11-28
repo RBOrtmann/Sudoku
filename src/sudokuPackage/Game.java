@@ -18,8 +18,12 @@ public class Game {
 		initialBoard = init; // do i need to do a deep copy here?
 		answerBoard = ans;
 		gameOver = false;
-		startTime = System.currentTimeMillis();
+		
 		//mistakesCounter = 0;;	
+		
+		
+		
+		
 	}
 	
 	/* Compares current board to answer board and returns
@@ -33,7 +37,6 @@ public class Game {
 	 from the answer board (5 total hints?) */
 
 	public void hint() {
-
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
 				if(j == 0) {
@@ -50,8 +53,8 @@ public class Game {
 	
 	/* Handles what happens once the game is won
 	  (For now just prints a string with some statistics) */
-	public String hasWon() {
-		return "";
+	public boolean hasWon() {
+		return false;
 
 	}
 	
@@ -103,5 +106,47 @@ public class Game {
 	/*Loops the game until it's over */
 	public void gameLoop() {
 		
+		while(!hasWon()) {
+			Scanner move = new Scanner(System.in);
+			// get player input
+			try {
+				
+				System.out.println("Pick your row, or -1 for help, -2 for hint, -3 for save");
+				
+				int r = move.nextInt();
+				// help if help req
+				if(r == -1) {
+					howAmIDoing();
+					break;
+				}
+				// hint
+				if(r == -2) {
+					hint();
+					break;
+				}
+				if(r == -3) {
+					// save --- save then return to exit loop
+					//save here
+					break;
+				}
+				System.out.println("Pick your col");
+				int c = move.nextInt();
+				
+				System.out.println("What would you like to put there?\n(1-9)");
+				int n = move.nextInt();
+				// move if move action requested
+				initialBoard.changeCell(r,c,n);
+				initialBoard.printBoard();
+				
+			}catch(Exception e) {
+				System.out.println(e.getMessage());
+						
+			}
+			
+			
+			
+			
+			// check for win
+		}
 	}
 }

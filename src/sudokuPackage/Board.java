@@ -6,9 +6,9 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Board {
-	private int[][] cells;
-	private static int NUM_ROWS = 9;
-	private static int NUM_COLS = 9;
+	private  int[][] cells;
+	private static final int NUM_ROWS = 9;
+	private static final int NUM_COLS = 9;
 	
 	/* Initializes the array for a new board*/
 	public Board(String s) {
