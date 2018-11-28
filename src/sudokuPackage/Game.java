@@ -1,7 +1,8 @@
 package sudokuPackage;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
-import java.io.*;
 
 public class Game {
 	private Board initialBoard;
@@ -70,16 +71,15 @@ public class Game {
 
 	/* Saves current board to text file */
 
+
 	public void saveGame() throws IOException {
 		String Save = initialBoard.toString();
 		FileWriter fw = new FileWriter("SavedGame",false);
 		fw.write(Save);
 		//writes the time
-		
+			
 		fw.close();
-	}	
-		
-
+	}
 	
 	/* Returns game state */
 	public boolean isOver() {
@@ -88,6 +88,5 @@ public class Game {
 	
 	/*Loops the game until it's over */
 	public void gameLoop() {
-		
 	}
 }
