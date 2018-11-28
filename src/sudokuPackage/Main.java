@@ -30,9 +30,10 @@ public class Main {
 	
 	/* Reads comments from a board file */
 	public static String readFile(String filename) throws FileNotFoundException{
-		Scanner scn = new Scanner(filename);
+		Scanner scn = new Scanner(new File(filename));
 		String filecontents = scn.useDelimiter("\\A").next();
-		
+		//System.out.println("here" + filecontents.length());
+		//System.out.println(filecontents);
 		scn.close();
 		return filecontents;
 	}

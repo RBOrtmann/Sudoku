@@ -1,6 +1,9 @@
 package sudokuPackage;
 
+
 import java.io.*;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Game {
@@ -28,7 +31,9 @@ public class Game {
 	
 	/* Populate random empty cell with the correct corresponding value
 	 from the answer board (5 total hints?) */
+
 	public void hint() {
+
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
 				if(j == 0) {
@@ -36,21 +41,30 @@ public class Game {
 					return;
 				}
 			}
+
 		}
-	}
+
+		}
+
+	
 	
 	/* Handles what happens once the game is won
 	  (For now just prints a string with some statistics) */
 	public String hasWon() {
-		return null;
+		return "";
+
 	}
 	
 	/* Keeps track of how long it takes to solve puzzle */
+	/* Keeps track of how long it takes to solve puzzle */
+
 	//TODO this should go in Main
 	public long timer() {
 		return (System.currentTimeMillis() - startTime);
 	}
-	
+
+	/* Gets user input (changes cells, calls howAmIDoing, etc.) */
+
 	public void getUserInput(Scanner scn) {
 		System.out.println("Choose a command: \n" + "\t1. Change a cell\n\t2. How am I doing?\n\t3. Hint");
 		int cmd = scn.nextInt();
@@ -68,14 +82,16 @@ public class Game {
 	}
 
 
-		public void saveGame() throws IOException {
+	/* Saves current board to text file */
+
+     public void saveGame() throws IOException {
 			String Save = initialBoard.toString();
 			FileWriter fw = new FileWriter("SavedGame.txt",false);
 			fw.write(Save);
 			//writes the time
 			
 			fw.close();
-			}	
+	}	
 		
 	
 	

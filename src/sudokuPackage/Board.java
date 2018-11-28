@@ -3,6 +3,7 @@ package sudokuPackage;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Board {
 	private int[][] cells;
@@ -18,16 +19,32 @@ public class Board {
 	/* Populates the initial cells based on the file that was read
 	 in SudokuMain*/
 	public void populateInitialCells(String s) {
-		for(int i = 0; i < NUM_ROWS; i++) {
+		Scanner scn = new Scanner(s);
+		String line;
+		int row = 0;
+		while(scn.hasNext()) {
+			line = scn.nextLine();
+			//Scanner scnline = new Scanner(line);
+			//scnline.useDelimiter("");
+			for(int i = 0; i<NUM_COLS; i++) {
+				cells[row][i] = Character.getNumericValue(line.charAt(i));
+			}
+			row++;
+		}
+		/*for(int i = 0; i < NUM_ROWS; i++) {
 			for(int j = 0; j < NUM_COLS; j++) {
 				char c = s.charAt(i*9 + j);
+				if (c == '\n') {
+					
+				}
 				if(Character.isDigit(c)) {
 					cells[i][j] = (int)c;
 				} else {
 					cells[i][j] = 0;
 				}
 			}
-		}
+		}*/
+		
 	}
 	
 	/* Gets a specific cell from the board array*/
