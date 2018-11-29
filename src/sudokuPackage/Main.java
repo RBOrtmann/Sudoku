@@ -10,15 +10,19 @@ public class Main {
 	 the boards to SudokuGame which handles the logic of the game. */
 	public static void main(String[] args) throws IOException{
 		Scanner scnIn = new Scanner(System.in);
-		System.out.println("Enter initial board filename: ");
-		// String board = scnIn.nextLine(); // This will eventually fetch user input
-		String board = "testboard";
+		System.out.println("Enter initial board filename: \n Or type 'load' to load your game");
+		String board = scnIn.nextLine(); //This will eventually fetch user input
+		//String board = "testboard";
 		
 		Board initBoard = new Board(readFile(board+".txt"));
 		// File name for answer board is just file name with "ans" on the end
 		Board ansBoard = new Board(readFile(board+"ans.txt"));
 		
+		Board loadState = new Board(readFile("Saved Game.txt"));//need this for load state ---G
+		
 		Game newGame = new Game(initBoard, ansBoard);
+		
+		
 		
 		// TODO this should go in Game
 //		while(!newGame.isOver()) {
@@ -45,11 +49,10 @@ public class Main {
 			return b;
 		}
 	
-	/*
-	 * public long timer() {
-	 * startTime = System.currentTimeMillis();
-		long startTime;
+		//need to display
+	  public long timer() {
+	    long startTime = System.currentTimeMillis();
 		return (System.currentTimeMillis() - startTime);
 	
-	 */
+	  }
 }

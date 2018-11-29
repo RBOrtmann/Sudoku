@@ -74,6 +74,8 @@ public class Board {
 	}
 	
 	
+	
+	
 	/* Compares two boards */
 	@Override
 	public boolean equals(Object o) {

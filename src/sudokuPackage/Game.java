@@ -54,7 +54,11 @@ public class Game {
 	/* Handles what happens once the game is won
 	  (For now just prints a string with some statistics) */
 	public boolean hasWon() {
+		if(initialBoard.getCells() == answerBoard.getCells()) {
+			return true;
+		}
 		return false;
+		
 
 	}
 	
