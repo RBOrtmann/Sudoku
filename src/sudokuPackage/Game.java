@@ -94,7 +94,7 @@ public class Game {
 	/* Saves current board to text file */
 
      public void saveGame() throws IOException {
-			String Save = initialBoard.toString();
+			String Save = initialBoard.toSavedFile();
 			FileWriter fw = new FileWriter("SavedGame.txt",false);
 			fw.write(Save);
 			System.out.println("Game Saved, you may exit now");
