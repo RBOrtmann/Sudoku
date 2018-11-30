@@ -55,7 +55,7 @@ public class Game {
 	  (For now just prints a string with some statistics) */
 
 	public boolean hasWon() {
-		if(initialBoard.getCells() == answerBoard.getCells()) {
+		if(initialBoard.equals(answerBoard)) {
 			return true;
 		}
 		return false;
@@ -113,9 +113,6 @@ public class Game {
 	public void gameLoop() throws IOException {
 		Scanner move = new Scanner(System.in);
 		while(!hasWon()) {
-			
-			// get player input
-			
 			initialBoard.printBoard();
 			System.out.println("Pick your row, or -1 for help, -2 for hint, -3 for save");
 			
@@ -131,20 +128,22 @@ public class Game {
 				hint();
 				break;
 			}
+			//
 			if(r == -3) {
 				saveGame();
 				break;
 			}
+			
 			System.out.println("Pick your col");
 			int c = move.nextInt();
 			
 			System.out.println("What would you like to put there?\n(1-9)");
 			int n = move.nextInt();
+			
 			// move if move action requested
 			initialBoard.changeCell(r,c,n);
-			
-			//move.close();
-			// check for win
+
+			hasWon();
 		}
 		move.close();
 	}
