@@ -12,13 +12,19 @@ public class Main {
 		Scanner scnIn = new Scanner(System.in);
 		System.out.println("Enter initial board filename (Or type 'load' to load your game): ");
 		//String board = scnIn.nextLine(); //This will eventually fetch user input
-		String board = "testboard";
+		String board =  scnIn.nextLine();
+		Board initBoard;
+		if (board.equals("load")) {
+			initBoard = new Board(readFile("SavedGame.txt"));
+		} else {
+			initBoard = new Board(readFile(board+"ans.txt"));
+		}
 		
-		Board initBoard = new Board(readFile(board+".txt"));
+		//String board = "testboard";		
+		//	Board initBoard = new Board(readFile(board+".txt"));
 		// File name for answer board is just file name with "ans" on the end
 		Board ansBoard = new Board(readFile(board+"ans.txt"));
 		
-		//Board loadState = new Board(readFile("Saved Game.txt"));//need this for load state ---G
 		
 		Game newGame = new Game(initBoard, ansBoard);
 		
@@ -41,11 +47,15 @@ public class Main {
 	
 	/* Loads in-progress board from file */
 	//load the board//
-		public Board loadBoard(String filename) throws IOException {
-			Board b = new Board(filename);
-			return b;
-		}
-	
+		/*
+		 * public Board loadBoard(String filename) throws IOException {
+		 * FileReader fr = new FileReader("SavedGame");
+			fr.read();
+			loadBoard.
+			
+		 */
+			
+		
 		//need to display
 	  public long timer() {
 	    long startTime = System.currentTimeMillis();
