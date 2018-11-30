@@ -112,15 +112,16 @@ public class Game {
 	
 	/*Loops the game until it's over */
 	public void gameLoop() throws IOException {
-		
+		Scanner move = new Scanner(System.in);
 		while(!hasWon()) {
-			Scanner move = new Scanner(System.in);
+			
 			// get player input
 			
 			initialBoard.printBoard();
 			System.out.println("Pick your row, or -1 for help, -2 for hint, -3 for save");
 			
 			int r = move.nextInt();
+			
 			// help if help req
 			if(r == -1) {
 				howAmIDoing();
@@ -143,8 +144,9 @@ public class Game {
 			// move if move action requested
 			initialBoard.changeCell(r,c,n);
 			
-			move.close();
+			//move.close();
 			// check for win
 		}
+		move.close();
 	}
 }
