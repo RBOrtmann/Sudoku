@@ -116,7 +116,8 @@ public class Game {
 		while(!hasWon()) {
 			Scanner move = new Scanner(System.in);
 			// get player input
-				
+			
+			initialBoard.printBoard();
 			System.out.println("Pick your row, or -1 for help, -2 for hint, -3 for save");
 			
 			int r = move.nextInt();
@@ -141,9 +142,6 @@ public class Game {
 			int n = move.nextInt();
 			// move if move action requested
 			initialBoard.changeCell(r,c,n);
-			initialBoard.printBoard();
-			
-			
 			
 			move.close();
 			// check for win

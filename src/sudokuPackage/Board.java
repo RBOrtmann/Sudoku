@@ -59,7 +59,7 @@ public class Board {
 	
 	/* Changes a specific cell in the board array*/
 	public void changeCell(int row, int col, int num) {
-		cells[row][col] = num;
+		cells[row-1][col-1] = num;
 	}
 	
 	/* Prints a formatted version of the current board to the console
