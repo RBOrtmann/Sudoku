@@ -9,7 +9,6 @@ public class Game {
 	private Board initialBoard;
 	private Board answerBoard;
 	private boolean gameOver;
-	private long startTime;
 	//private int mistakesCounter;
 	
 	/* Constructs SudokuGame with initial board and answer board */
