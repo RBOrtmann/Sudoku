@@ -68,7 +68,7 @@ public class Game {
 	/* Keeps track of how long it takes to solve puzzle */
 	/* Keeps track of how long it takes to solve puzzle */
 
-	//TODO this should go in Main
+	//TODO this should go in Mai
 	public long timer() {
 		return (System.currentTimeMillis() - startTime);
 	}
