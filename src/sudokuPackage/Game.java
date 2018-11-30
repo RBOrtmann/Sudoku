@@ -56,14 +56,15 @@ public class Game {
 	
 	/* Handles what happens once the game is won
 	  (For now just prints a string with some statistics) */
+
 	public boolean hasWon() {
 		if(initialBoard.getCells() == answerBoard.getCells()) {
 			return true;
 		}
 		return false;
-		
+	}	
 
-	}
+	
 	
 	/* Keeps track of how long it takes to solve puzzle */
 	/* Keeps track of how long it takes to solve puzzle */
@@ -100,10 +101,10 @@ public class Game {
 			fw.write(Save);
 			System.out.println("Game Saved, you may exit now");
 			//writes the time
-			
-			fw.close();
-	}	
-		
+
+
+		fw.close();
+	}
 	
 	
 	/* Returns game state */
