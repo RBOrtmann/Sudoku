@@ -22,8 +22,9 @@ public class Main {
 		
 		Game newGame = new Game(initBoard, ansBoard);
 		
+		long startTime = System.currentTimeMillis();
 		newGame.gameLoop();	
-
+		System.out.println("Time: " + (System.currentTimeMillis()-startTime)/1000);
 		
 		scnIn.close();
 	}

@@ -37,7 +37,6 @@ public class Game {
 	
 	/* Populate random empty cell with the correct corresponding value
 	 from the answer board (5 total hints?) */
-
 	public void hint() {
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
@@ -53,7 +52,6 @@ public class Game {
 	
 	/* Handles what happens once the game is won
 	  (For now just prints a string with some statistics) */
-
 	public boolean hasWon() {
 		if(initialBoard.equals(answerBoard)) {
 			return true;
@@ -61,18 +59,7 @@ public class Game {
 		return false;
 	}	
 
-	
-	
-	/* Keeps track of how long it takes to solve puzzle */
-	/* Keeps track of how long it takes to solve puzzle */
-
-	//TODO this should go in Main
-	public long timer() {
-		return (System.currentTimeMillis() - startTime);
-	}
-
 	/* Gets user input (changes cells, calls howAmIDoing, etc.) */
-
 	public void getUserInput(Scanner scn) {
 		System.out.println("Choose a command: \n" + "\t1. Change a cell\n\t2. How am I doing?\n\t3. Hint");
 		int cmd = scn.nextInt();
@@ -91,7 +78,6 @@ public class Game {
 
 
 	/* Saves current board to text file */
-
      public void saveGame() throws IOException {
 			String Save = initialBoard.toString();
 			FileWriter fw = new FileWriter("SavedGame.txt",false);
