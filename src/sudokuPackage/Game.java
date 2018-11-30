@@ -127,7 +127,7 @@ public class Game {
 				howAmIDoing();
 				break;
 			}
-			// hint
+			// 
 			if(r == -2) {
 				hint();
 				break;
