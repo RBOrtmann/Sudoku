@@ -142,8 +142,6 @@ public class Game {
 			
 			// move if move action requested
 			initialBoard.changeCell(r,c,n);
-
-			hasWon();
 		}
 		move.close();
 	}
