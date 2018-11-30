@@ -30,6 +30,9 @@ public class Game {
 	 the total number of cells that are wrong. This will eventually
 	 be expanded to specify which specific cells are wrong.*/
 	public void howAmIDoing() {
+		//Scanner first = new Scanner(initialBoard);
+		//Scanner second = new Scanner(answerBoard);
+		
 		
 	}
 	
@@ -95,6 +98,7 @@ public class Game {
 			String Save = initialBoard.toString();
 			FileWriter fw = new FileWriter("SavedGame.txt",false);
 			fw.write(Save);
+			System.out.println("Game Saved, you may exit now");
 			//writes the time
 			
 			fw.close();
@@ -129,8 +133,8 @@ public class Game {
 					break;
 				}
 				if(r == -3) {
-					// save --- save then return to exit loop
-					//save here
+					saveGame();
+					
 					break;
 				}
 				System.out.println("Pick your col");
