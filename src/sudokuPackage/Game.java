@@ -99,34 +99,27 @@ public class Game {
 		Scanner move = new Scanner(System.in);
 		while(!hasWon()) {
 			initialBoard.printBoard();
-			System.out.println("Pick your row, or -1 for help, -2 for hint, -3 for save");
+			System.out.println("Pick your row, or -1 for help, -2 for hint, -3 for save: ");
 			
 			int r = move.nextInt();
 			
-			// help if help req
-			if(r == -1) {
+			switch(r) {
+			case -1:
 				howAmIDoing();
-				break;
-			}
-			// 
-			if(r == -2) {
+			case -2:
 				hint();
-				break;
-			}
-			//
-			if(r == -3) {
+			case -3:
 				saveGame();
-				break;
 			}
 			
-			System.out.println("Pick your col");
+			System.out.println("Pick your column: ");
 			int c = move.nextInt();
 			
-			System.out.println("What would you like to put there?\n(1-9)");
+			System.out.println("Enter value (1-9): ");
 			int n = move.nextInt();
 			
 			// move if move action requested
-			initialBoard.changeCell(r,c,n);
+			initialBoard.changeCell(r-1, c-1, n);
 		}
 		move.close();
 	}
