@@ -113,7 +113,6 @@ public class Board {
 		for(int i = 0; i < cells.length; i++) {
 			for(int j = 0; j < cells.length; j++) {
 				b = b + (cells[i][j]);
-				
 			}
 			b = b + "\n";
 		}

@@ -78,12 +78,11 @@ public class Game {
 
 	/* Saves current board to text file */
      public void saveGame() throws IOException {
-			String Save = initialBoard.toSavedFile();
-			FileWriter fw = new FileWriter("SavedGame.txt",false);
-			fw.write(Save);
-			System.out.println("Game Saved, you may exit now");
-			//writes the time
-
+		String Save = initialBoard.toSavedFile();
+		FileWriter fw = new FileWriter("SavedGame.txt");
+		fw.write(Save);
+		System.out.println("Game saved, exiting...");
+		System.exit(0);
 
 		fw.close();
 	}
@@ -106,10 +105,14 @@ public class Game {
 			switch(r) {
 			case -1:
 				howAmIDoing();
+				break;
 			case -2:
 				hint();
+				gameLoop();
+				break;
 			case -3:
 				saveGame();
+				break;
 			}
 			
 			System.out.println("Pick your column: ");
