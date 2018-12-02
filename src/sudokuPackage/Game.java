@@ -8,30 +8,27 @@ import java.util.Scanner;
 public class Game {
 	private Board initialBoard;
 	private Board answerBoard;
-	private boolean gameOver;
-	//private int mistakesCounter;
 	
 	/* Constructs SudokuGame with initial board and answer board */
 	public Game(Board init, Board ans) {
 		initialBoard = init; // do i need to do a deep copy here?
-		answerBoard = ans;
-		gameOver = false;
-		
-		//mistakesCounter = 0;;	
-		
-		
-		
-		
+		answerBoard = ans;		
 	}
 	
 	/* Compares current board to answer board and returns
 	 the total number of cells that are wrong. This will eventually
 	 be expanded to specify which specific cells are wrong.*/
 	public void howAmIDoing() {
-		//Scanner first = new Scanner(initialBoard);
-		//Scanner second = new Scanner(answerBoard);
+		int different = 0;
+		for(int i = 0; i < 9; i++) {
+			for(int j = 0; j < 9; j++) {
+				if(initialBoard.getCell(i, j) != answerBoard.getCell(i, j)) {
+					different++;
+				}
+			}
+		}
 		
-		
+		System.out.println(different + " of your cells are wrong.");
 	}
 	
 	/* Populate random empty cell with the correct corresponding value
@@ -39,7 +36,7 @@ public class Game {
 	public void hint() {
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
-				if(j == 0) {
+				if(initialBoard.getCell(i, j) == 0) {
 					initialBoard.changeCell(i, j, answerBoard.getCell(i, j));
 					return;
 				}
@@ -78,19 +75,14 @@ public class Game {
 
 	/* Saves current board to text file */
      public void saveGame() throws IOException {
-		String Save = initialBoard.toSavedFile();
-		FileWriter fw = new FileWriter("SavedGame.txt");
-		fw.write(Save);
+		String save = initialBoard.toString();
+		FileWriter fw = new FileWriter("load.txt");
+		fw.write(save);
 		System.out.println("Game saved, exiting...");
-		System.exit(0);
-
+		
+		fw.flush();
 		fw.close();
-	}
-	
-	
-	/* Returns game state */
-	public boolean isOver() {
-		return gameOver;
+		System.exit(0);
 	}
 	
 	/*Loops the game until it's over */
