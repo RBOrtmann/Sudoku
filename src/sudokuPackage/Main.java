@@ -21,7 +21,7 @@ public class Main {
 		
 		long startTime = System.currentTimeMillis();
 		newGame.gameLoop();	
-		System.out.println("Time: " + (System.currentTimeMillis()-startTime)/1000);
+		System.out.println("Time: " + (System.currentTimeMillis()-startTime)/1000 + " seconds.");
 		
 		scnIn.close();
 	}

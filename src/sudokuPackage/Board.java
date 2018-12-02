@@ -1,6 +1,7 @@
 package sudokuPackage;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Board {
 	private  int[][] cells;
@@ -73,7 +74,7 @@ public class Board {
 		}
 		
 		Board other = (Board)o;
-		return (cells == other.cells);
+		return (Arrays.deepEquals(cells, other.cells));
 	}
 	
 	/* Returns the current board as a string */

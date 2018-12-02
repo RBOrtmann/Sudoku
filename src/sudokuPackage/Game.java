@@ -43,8 +43,6 @@ public class Game {
 			}
 		}
 	}
-
-	
 	
 	/* Handles what happens once the game is won
 	  (For now just prints a string with some statistics) */
