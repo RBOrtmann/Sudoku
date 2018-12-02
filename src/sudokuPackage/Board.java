@@ -1,6 +1,5 @@
 package sudokuPackage;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Board {
@@ -63,9 +62,6 @@ public class Board {
 			}
 		}
 	}
-	
-	
-	
 	
 	/* Compares two boards */
 	@Override
