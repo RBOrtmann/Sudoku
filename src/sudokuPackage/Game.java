@@ -54,6 +54,7 @@ public class Game {
 	  (For now just prints a string with some statistics) */
 	public boolean hasWon() {
 		if(initialBoard.equals(answerBoard)) {
+			System.out.println("Congrats good job, you won! :^)");
 			return true;
 		}
 		return false;
