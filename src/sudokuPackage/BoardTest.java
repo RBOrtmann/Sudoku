@@ -44,10 +44,6 @@ class BoardTest {
 		//Assert.fail();
 	}
  */
-	@Test
-	void testBoard() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	void testPopulateInitialCells() {
@@ -67,7 +63,6 @@ class BoardTest {
 				+ "000000000\n";
 		Board b = new Board(boardtest);
 		assertEquals(5,b.getCell(1, 1));
-		fail("Not yet implemented");
 	}
 
 	@Test
