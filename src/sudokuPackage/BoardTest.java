@@ -67,12 +67,24 @@ class BoardTest {
 
 	@Test
 	void testGetCells() {
+
 		fail("Not yet implemented");
 	}
 
 	@Test
 	void testChangeCell() {
-		fail("Not yet implemented");
+		String boardtest = "000000000\n"
+				+ "050000000\n"
+				+ "000000000\n"
+				+ "000000000\n"
+				+ "000000000\n"
+				+ "000000000\n"
+				+ "000000000\n"
+				+ "000000000\n"
+				+ "000000000\n";
+		Board b = new Board(boardtest);
+		b.changeCell(0, 0, 3);
+		assertEquals(3,b.getCell(0, 0));
 	}
 
 	@Test
