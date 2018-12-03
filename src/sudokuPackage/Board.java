@@ -1,7 +1,7 @@
 package sudokuPackage;
 
-import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Board {
 	private  int[][] cells;
@@ -22,27 +22,12 @@ public class Board {
 		int row = 0;
 		while(scn.hasNext()) {
 			line = scn.nextLine();
-			//Scanner scnline = new Scanner(line);
-			//scnline.useDelimiter("");
-			for(int i = 0; i<NUM_COLS; i++) {
+			for(int i = 0; i < NUM_COLS; i++) {
 				cells[row][i] = Character.getNumericValue(line.charAt(i));
 			}
 			row++;
 		}
-		/*for(int i = 0; i < NUM_ROWS; i++) {
-			for(int j = 0; j < NUM_COLS; j++) {
-				char c = s.charAt(i*9 + j);
-				if (c == '\n') {
-					
-				}
-				if(Character.isDigit(c)) {
-					cells[i][j] = (int)c;
-				} else {
-					cells[i][j] = 0;
-				}
-			}
-		}*/
-		
+		scn.close();
 	}
 	
 	/* Gets a specific cell from the board array*/
@@ -57,7 +42,7 @@ public class Board {
 	
 	/* Changes a specific cell in the board array*/
 	public void changeCell(int row, int col, int num) {
-		cells[row-1][col-1] = num;
+		cells[row][col] = num;
 	}
 	
 	/* Prints a formatted version of the current board to the console
@@ -67,25 +52,17 @@ public class Board {
 		for(int i = 0; i < cells.length; i++) {
 			System.out.print("| ");			
 			for(int j = 0; j < cells.length; j++) {
-				
 				System.out.print(cells[i][j]);
 				if((j+1)%3==0) {
 					System.out.print(" | ");
 				}
-				
-				
 			}
 			System.out.println();
 			if((i+1)%3 == 0 && i != 8) {
 				System.out.println(" -----------------"); 
 			}
-			
-			
 		}
 	}
-	
-	
-	
 	
 	/* Compares two boards */
 	@Override
@@ -97,23 +74,16 @@ public class Board {
 		}
 		
 		Board other = (Board)o;
-		return (cells == other.cells);
+		return (Arrays.deepEquals(cells, other.cells));
 	}
 	
 	/* Returns the current board as a string */
 	@Override
 	public String toString() {
-		String s = Arrays.deepToString(cells);
-		s.replaceAll("\\D", "");
-		return s;
-	}
-
-	public String toSavedFile() {
 		String b = "";
 		for(int i = 0; i < cells.length; i++) {
 			for(int j = 0; j < cells.length; j++) {
 				b = b + (cells[i][j]);
-				
 			}
 			b = b + "\n";
 		}

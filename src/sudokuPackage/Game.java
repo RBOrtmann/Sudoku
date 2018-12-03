@@ -8,31 +8,27 @@ import java.util.Scanner;
 public class Game {
 	private Board initialBoard;
 	private Board answerBoard;
-	private boolean gameOver;
-	private long startTime;
-	//private int mistakesCounter;
 	
 	/* Constructs SudokuGame with initial board and answer board */
 	public Game(Board init, Board ans) {
 		initialBoard = init; // do i need to do a deep copy here?
-		answerBoard = ans;
-		gameOver = false;
-		
-		//mistakesCounter = 0;;	
-		
-		
-		
-		
+		answerBoard = ans;		
 	}
 	
 	/* Compares current board to answer board and returns
 	 the total number of cells that are wrong. This will eventually
 	 be expanded to specify which specific cells are wrong.*/
 	public void howAmIDoing() {
-		//Scanner first = new Scanner(initialBoard);
-		//Scanner second = new Scanner(answerBoard);
+		int different = 0;
+		for(int i = 0; i < 9; i++) {
+			for(int j = 0; j < 9; j++) {
+				if(initialBoard.getCell(i, j) != answerBoard.getCell(i, j)) {
+					different++;
+				}
+			}
+		}
 		
-		
+		System.out.println(different + " of your cells are wrong.");
 	}
 	
 	/* Populate random empty cell with the correct corresponding value
@@ -40,15 +36,13 @@ public class Game {
 	public void hint() {
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
-				if(j == 0) {
+				if(initialBoard.getCell(i, j) == 0) {
 					initialBoard.changeCell(i, j, answerBoard.getCell(i, j));
 					return;
 				}
 			}
 		}
 	}
-
-	
 	
 	/* Handles what happens once the game is won
 	  (For now just prints a string with some statistics) */
@@ -61,75 +55,59 @@ public class Game {
 	}	
 
 	/* Gets user input (changes cells, calls howAmIDoing, etc.) */
-	public void getUserInput(Scanner scn) {
-		System.out.println("Choose a command: \n" + "\t1. Change a cell\n\t2. How am I doing?\n\t3. Hint");
+	public void getUserInput(Scanner scn) throws Exception{
+		System.out.println("Choose a command: \n" + "1. Change a cell\n"
+				+ "2. How am I doing?\n3. Hint\n4. Save");
+		
 		int cmd = scn.nextInt();
+		
 		if(cmd == 1) {
-			System.out.println("Enter value (row column value)");
+			System.out.println("Enter row: ");
 			int row = scn.nextInt();
+			System.out.println("Enter column: ");
 			int col = scn.nextInt();
+			System.out.println("Enter value: ");
 			int val = scn.nextInt();
-			initialBoard.changeCell(row, col, val);
+			initialBoard.changeCell(row-1, col-1, val);
 		} else if(cmd == 2) {
 			howAmIDoing();
 		} else if(cmd == 3) {
 			hint();
+		} else if(cmd == 4) {
+			saveGame(initialBoard, false);
+			saveGame(answerBoard, true);
+			System.out.println("Game saved.");
 		}
 	}
 
 
 	/* Saves current board to text file */
-     public void saveGame() throws IOException {
-			String Save = initialBoard.toSavedFile();
-			FileWriter fw = new FileWriter("SavedGame.txt",false);
-			fw.write(Save);
-			System.out.println("Game Saved, you may exit now");
-			//writes the time
-
-
+     public void saveGame(Board b, boolean ans) throws IOException {
+		String save = b.toString();
+		FileWriter fw;
+		if(ans) {
+			fw = new FileWriter("loadans.txt");
+		} else {
+			fw = new FileWriter("load.txt");
+		}
+		fw.write(save);
+		
+		fw.flush();
 		fw.close();
 	}
 	
-	
-	/* Returns game state */
-	public boolean isOver() {
-		return gameOver;
-	}
-	
 	/*Loops the game until it's over */
-	public void gameLoop() throws IOException {
+	public void gameLoop() {
 		Scanner move = new Scanner(System.in);
 		while(!hasWon()) {
 			initialBoard.printBoard();
-			System.out.println("Pick your row, or -1 for help, -2 for hint, -3 for save");
-			
-			int r = move.nextInt();
-			
-			// help if help req
-			if(r == -1) {
-				howAmIDoing();
-				break;
+			try {
+				getUserInput(move);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
 			}
-			// 
-			if(r == -2) {
-				hint();
-				break;
-			}
-			//
-			if(r == -3) {
-				saveGame();
-				break;
-			}
-			
-			System.out.println("Pick your col");
-			int c = move.nextInt();
-			
-			System.out.println("What would you like to put there?\n(1-9)");
-			int n = move.nextInt();
-			
-			// move if move action requested
-			initialBoard.changeCell(r,c,n);
 		}
+		System.out.println("Game over!");
 		move.close();
 	}
 }
