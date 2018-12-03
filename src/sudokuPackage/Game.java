@@ -106,6 +106,7 @@ public class Game {
 				System.out.println(e.getMessage());
 			}
 		}
+		initialBoard.printBoard();
 		System.out.println("Game over!");
 		move.close();
 	}
