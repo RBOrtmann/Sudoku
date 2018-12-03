@@ -1,113 +1,43 @@
 package sudokuPackage;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class GameTest {
+class GameTest {
 
 	@Test
-	public void testGame() {
+	void testGame() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testHowAmIDoing() {
+	void testHowAmIDoing() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testHint() {
+	void testHint() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testHasWon() {
+	void testHasWon() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testTimer() {
+	void testGetUserInput() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testGetUserInput() {
+	void testSaveGame() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testSaveGame() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testIsOver() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGameLoop() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testObject() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetClass() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testHashCode() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testEquals() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testClone() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testToString() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testNotify() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testNotifyAll() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testWaitLong() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testWaitLongInt() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testWait() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testFinalize() {
+	void testGameLoop() {
 		fail("Not yet implemented");
 	}
 
