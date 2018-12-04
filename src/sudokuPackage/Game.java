@@ -85,36 +85,49 @@ public class Game {
 
 	/* Gets user input (changes cells, calls howAmIDoing, etc.) */
 	public void getUserInput(Scanner scn) throws Exception{
-		System.out.println("Choose a command: \n" + "1. Change a cell\n"+ "2. How am I doing?\n3. Hint\n4. Save (this will overwrite your previous save)");
+		System.out.println("Choose a command: \n" + "1. Change a cell\n" + "2. How am I doing?\n" + 
+				"3. Hint\n" + 
+				"4. Save (this will overwrite your previous save)\n" +
+				"5. Exit");
 		
-		int cmd = scn.nextInt();
-		
-		if(cmd == 1) {
-			System.out.println("Enter row: ");
-			int row = scn.nextInt();
-			System.out.println("Enter column: ");
-			int col = scn.nextInt();
-			System.out.println("Enter value: ");
-			int val = scn.nextInt();
-			
-			initialBoard.changeCell(row-1, col-1, val);
-			
-			Move counter = new Move();
-			counter.row = row-1;
-			counter.col = col-1;
-			counter.value = val;
-			moves.add(counter);
-		} else if(cmd == 2) {
-			howAmIDoing();
-		} else if(cmd == 3) {
-			hint();
-		} else if(cmd == 4) {
-			saveGame(initialBoard, false);
-			saveGame(answerBoard, true);
-			System.out.println("Game saved.");
-		}else if(cmd == 5) {
-			System.exit(0);;
+		try {
+			int cmd = scn.nextInt();
+			if(cmd == 1) {
+				System.out.println("Enter row: ");
+				int row = scn.nextInt();
+				System.out.println("Enter column: ");
+				int col = scn.nextInt();
+				System.out.println("Enter value: ");
+				int val = scn.nextInt();
+				
+				initialBoard.changeCell(row-1, col-1, val);
+				
+				Move counter = new Move();
+				counter.row = row-1;
+				counter.col = col-1;
+				counter.value = val;
+				moves.add(counter);
+			} else if(cmd == 2) {
+				howAmIDoing();
+			} else if(cmd == 3) {
+				hint();
+			} else if(cmd == 4) {
+				saveGame(initialBoard, false);
+				saveGame(answerBoard, true);
+				System.out.println("Game saved.");
+			} else if(cmd == 5) {
+				System.exit(0);
+			} else {
+				System.out.println("Please enter a valid number.");
+				scn.next();
+				getUserInput(scn);
+			}
+		} catch (Exception e) {
+			System.out.println("Invalid input, try again.");
+			scn.next();
+			getUserInput(scn);
 		}
+		
 	}
 
 
