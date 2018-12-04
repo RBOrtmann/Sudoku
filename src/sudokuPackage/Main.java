@@ -9,19 +9,27 @@ public class Main {
 	 and creating the initial board and its answer key. Then it sends
 	 the boards to SudokuGame which handles the logic of the game. */
 	public static void main(String[] args){
-		Scanner scnIn = new Scanner(System.in);
+		Scanner scn = new Scanner(System.in);
+		Board initBoard;
+		Board ansBoard;
+		Game newGame;
+		String diff;
 		System.out.println("Choose your difficulty (or load your saved game): \n"
 				+ "1. Easy\n"
 				+ "2. Medium\n"
 				+ "3. Hard\n"
-				+ "4. Saved Game (any key)");
-		Board initBoard;
-		Board ansBoard;
-		Game newGame;
+				+ "4. Saved Game");
 		
+		do {
+			try {
+				diff = scn.nextLine();
+				int i = (int)diff;
+			} catch(Exception e) {
+				
+			}
+		} while(!scn.hasNextInt());
 		
-		
-		scnIn.close();
+		scn.close();
 	}
 	
 	/* Reads comments from a board file */
