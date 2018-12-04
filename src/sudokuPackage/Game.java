@@ -3,16 +3,35 @@ package sudokuPackage;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
+import java.util.Stack;
+
+
+//set of text files
+
 
 public class Game {
 	private Board initialBoard;
 	private Board answerBoard;
+	private Stack<Move> moves;
+	private int hint;
+	
+	
+	class Move {
+		public int row;
+		public int col;
+		public int value;
+	}
 	
 	/* Constructs SudokuGame with initial board and answer board */
 	public Game(Board init, Board ans) {
 		initialBoard = init; // do i need to do a deep copy here?
 		answerBoard = ans;		
+		moves = new Stack<>();	
+		hint = 5;
+	
 	}
 	
 	/* Compares current board to answer board and returns
@@ -34,16 +53,29 @@ public class Game {
 	/* Populate random empty cell with the correct corresponding value
 	 from the answer board (5 total hints?) */
 	public void hint() {
-		for(int i = 0; i < 9; i++) {
-			for(int j = 0; j < 9; j++) {
-				if(initialBoard.getCell(i, j) == 0) {
-					initialBoard.changeCell(i, j, answerBoard.getCell(i, j));
-					return;
+		ArrayList<Move> empty = new ArrayList<>();
+		if(hint > 0) {
+			for(int i = 0; i < 9; i++) {
+				for(int j = 0; j < 9; j++) {
+					if(initialBoard.getCell(i, j) == 0) {
+						//initialBoard.changeCell(i, j, answerBoard.getCell(i, j));
+						Move m = new Move();
+						m.row = i;
+						m.col = j;
+						m.value = 0;
+						empty.add(m);
+					}
 				}
 			}
+			Random rand = new Random();
+			Move n = empty.get(rand.nextInt(empty.size()));
+			initialBoard.changeCell(n.row, n.col, answerBoard.getCell(n.row, n.col));
+			hint--;
+			
+		} else {
+			System.out.println("You've used too many hints!");
 		}
 	}
-	
 	/* Handles what happens once the game is won
 	  (For now just prints a string with some statistics) */
 	public boolean hasWon() {
@@ -52,12 +84,15 @@ public class Game {
 			return true;
 		}
 		return false;
-	}	
+	}
+	
+	
+	 
 
 	/* Gets user input (changes cells, calls howAmIDoing, etc.) */
 	public void getUserInput(Scanner scn) throws Exception{
 		System.out.println("Choose a command: \n" + "1. Change a cell\n"
-				+ "2. How am I doing?\n3. Hint\n4. Save");
+				+ "2. How am I doing?\n3. Hint (" + hint + ")" + "\n4. Save\n5. Quit");
 		
 		int cmd = scn.nextInt();
 		
@@ -69,6 +104,11 @@ public class Game {
 			System.out.println("Enter value: ");
 			int val = scn.nextInt();
 			initialBoard.changeCell(row-1, col-1, val);
+			Move counter = new Move();
+			counter.row = row;
+			counter.col = col;
+			counter.value = val;
+			moves.add(counter);
 		} else if(cmd == 2) {
 			howAmIDoing();
 		} else if(cmd == 3) {
@@ -77,6 +117,8 @@ public class Game {
 			saveGame(initialBoard, false);
 			saveGame(answerBoard, true);
 			System.out.println("Game saved.");
+		}else if(cmd == 5) {
+			System.exit(0);;
 		}
 	}
 
@@ -107,7 +149,14 @@ public class Game {
 				System.out.println(e.getMessage());
 			}
 		}
-		System.out.println("Game over!");
+		System.out.println("Game over! \n To see moves, click m or any other key to end the game");
+		if(move.next().equals("m")) {
+			while(!moves.isEmpty()) {
+				Move m = moves.pop();
+				System.out.println("Row = " + m.row + " Column = " + m.col + " Number = " + m.value);
+			}
+			
+		}
 		move.close();
 	}
 }

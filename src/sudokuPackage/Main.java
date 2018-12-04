@@ -23,9 +23,11 @@ public class Main {
 			
 			long startTime = System.currentTimeMillis();
 			newGame.gameLoop();	
-			System.out.println("Time: " + (System.currentTimeMillis()-startTime)/1000 + " seconds.");
+			System.out.println("Time: " + ((System.currentTimeMillis()-startTime)/1000)/60 + " Minutes.");
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage() + "\nRestart the program to continue.");
+			
+			
 		}
 		
 		scnIn.close();
