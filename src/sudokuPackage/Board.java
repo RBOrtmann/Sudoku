@@ -59,7 +59,7 @@ public class Board {
 			}
 			System.out.println();
 			if((i+1)%3 == 0 && i != 8) {
-				System.out.println(" -----------------"); 
+				System.out.println("---------------"); 
 			}
 		}
 	}

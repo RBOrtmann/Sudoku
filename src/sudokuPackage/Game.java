@@ -91,8 +91,7 @@ public class Game {
 
 	/* Gets user input (changes cells, calls howAmIDoing, etc.) */
 	public void getUserInput(Scanner scn) throws Exception{
-		System.out.println("Choose a command: \n" + "1. Change a cell\n"
-				+ "2. How am I doing?\n3. Hint (" + hint + ")" + "\n4. Save\n5. Quit");
+		System.out.println("Choose a command: \n" + "1. Change a cell\n"+ "2. How am I doing?\n3. Hint\n4. Save (this will overwrite your previous save)");
 		
 		int cmd = scn.nextInt();
 		
@@ -157,6 +156,8 @@ public class Game {
 			}
 			
 		}
+		initialBoard.printBoard();
+		System.out.println("Game over!");
 		move.close();
 	}
 }
