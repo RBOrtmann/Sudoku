@@ -3,10 +3,7 @@ package sudokuPackage;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 
 public class Game {
@@ -26,7 +23,7 @@ public class Game {
 	public Game(Board init, Board ans) {
 		initialBoard = init; // do i need to do a deep copy here?
 		answerBoard = ans;		
-		moves = new Stack<>();	
+		moves = new Stack<>();
 		hint = 5;
 	
 	}
@@ -86,7 +83,7 @@ public class Game {
 	/* Gets user input (changes cells, calls howAmIDoing, etc.) */
 	public void getUserInput(Scanner scn) throws Exception{
 		System.out.println("Choose a command: \n" + "1. Change a cell\n" + "2. How am I doing?\n" + 
-				"3. Hint\n" + 
+				"3. Hint (" + hint + ")\n" + 
 				"4. Save (this will overwrite your previous save)\n" +
 				"5. Exit");
 		
@@ -124,7 +121,7 @@ public class Game {
 			}
 		} catch (Exception e) {
 			System.out.println("Invalid input, try again.");
-			scn.next();
+			scn.nextLine();
 			getUserInput(scn);
 		}
 		

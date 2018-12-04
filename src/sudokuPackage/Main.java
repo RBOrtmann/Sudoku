@@ -42,7 +42,7 @@ public class Main {
 			newGame.gameLoop();	
 			System.out.println("Time: " + ((System.currentTimeMillis()-startTime)/1000)/60 + " minutes.");
 		} catch (Exception e) {
-			System.out.println("Restart the program to continue.");
+			System.out.println("Invalid input. Restart the program to continue.");
 		}
 		
 		scn.close();
