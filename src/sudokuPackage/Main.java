@@ -13,21 +13,37 @@ public class Main {
 		Board initBoard;
 		Board ansBoard;
 		Game newGame;
-		String diff;
+		int diff;
 		System.out.println("Choose your difficulty (or load your saved game): \n"
 				+ "1. Easy\n"
 				+ "2. Medium\n"
 				+ "3. Hard\n"
 				+ "4. Saved Game");
 		
-		do {
-			try {
-				diff = scn.nextLine();
-				int i = (int)diff;
-			} catch(Exception e) {
-				
+		try {
+			diff =  scn.nextInt();
+			
+			if(diff == 1) {
+				initBoard = new Board(readFile("Easy.txt"));
+				ansBoard = new Board(readFile("Easyans.txt"));
+			} else if(diff == 2) {
+				initBoard = new Board(readFile("Medium.txt"));
+				ansBoard = new Board(readFile("Mediumans.txt"));
+			} else if(diff == 3) {
+				initBoard = new Board(readFile("Hard.txt"));
+				ansBoard = new Board(readFile("Hardans.txt"));
+			} else {
+				initBoard = new Board(readFile("load.txt"));
+				ansBoard = new Board(readFile("loadans.txt"));
 			}
-		} while(!scn.hasNextInt());
+			
+			newGame = new Game(initBoard, ansBoard);
+			long startTime = System.currentTimeMillis();
+			newGame.gameLoop();	
+			System.out.println("Time: " + ((System.currentTimeMillis()-startTime)/1000)/60 + " minutes.");
+		} catch (Exception e) {
+			System.out.println("Restart the program to continue.");
+		}
 		
 		scn.close();
 	}
