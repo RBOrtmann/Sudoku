@@ -6,10 +6,6 @@ import org.junit.jupiter.api.Test;
 
 class BoardTest {
 
-	@Test
-	void testPopulateInitialCells() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	void testGetCell() {
