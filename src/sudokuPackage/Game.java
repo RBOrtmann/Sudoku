@@ -82,9 +82,6 @@ public class Game {
 		}
 		return false;
 	}
-	
-	
-	 
 
 	/* Gets user input (changes cells, calls howAmIDoing, etc.) */
 	public void getUserInput(Scanner scn) throws Exception{
@@ -99,10 +96,12 @@ public class Game {
 			int col = scn.nextInt();
 			System.out.println("Enter value: ");
 			int val = scn.nextInt();
+			
 			initialBoard.changeCell(row-1, col-1, val);
+			
 			Move counter = new Move();
-			counter.row = row;
-			counter.col = col;
+			counter.row = row-1;
+			counter.col = col-1;
 			counter.value = val;
 			moves.add(counter);
 		} else if(cmd == 2) {

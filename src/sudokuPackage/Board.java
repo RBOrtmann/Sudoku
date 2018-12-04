@@ -35,24 +35,24 @@ public class Board {
 		return (cells[row][col]);
 	}
 	
-	/* Get all cells from board */
-	public int[][] getCells(){
-		return(cells);
-	}
 	
 	/* Changes a specific cell in the board array*/
 	public void changeCell(int row, int col, int num) {
 		cells[row][col] = num;
 	}
 	
-	/* Prints a formatted version of the current board to the console
-	 (will later be supplanted with the GUI)*/
+	/* Prints a formatted version of the current board to the console */
 	public void printBoard() {
 		
 		for(int i = 0; i < cells.length; i++) {
 			System.out.print("| ");			
 			for(int j = 0; j < cells.length; j++) {
-				System.out.print(cells[i][j]);
+				if(cells[i][j] != 0) {
+					System.out.print(cells[i][j]);
+				} else {
+					System.out.print("_");
+				}
+				
 				if((j+1)%3==0) {
 					System.out.print(" | ");
 				}

@@ -19,30 +19,7 @@ public class Main {
 		Board ansBoard;
 		Game newGame;
 		
-		try {
-			int diff =  scnIn.nextInt();
-			
-			if(diff == 1) {
-				initBoard = new Board(readFile("Easy.txt"));
-				ansBoard = new Board(readFile("Easyans.txt"));
-			} else if(diff == 2) {
-				initBoard = new Board(readFile("Medium.txt"));
-				ansBoard = new Board(readFile("Mediumans.txt"));
-			} else if(diff == 3) {
-				initBoard = new Board(readFile("Hard.txt"));
-				ansBoard = new Board(readFile("Hardans.txt"));
-			} else {
-				initBoard = new Board(readFile("load.txt"));
-				ansBoard = new Board(readFile("loadans.txt"));
-			}
-			
-			newGame = new Game(initBoard, ansBoard);
-			long startTime = System.currentTimeMillis();
-			newGame.gameLoop();	
-			System.out.println("Time: " + ((System.currentTimeMillis()-startTime)/1000)/60 + " Minutes.");
-		} catch (FileNotFoundException e) {
-			System.out.println(e.getMessage() + "\nRestart the program to continue.");
-		}
+		
 		
 		scnIn.close();
 	}
