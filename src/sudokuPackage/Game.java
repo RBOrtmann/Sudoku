@@ -9,9 +9,6 @@ import java.util.Scanner;
 import java.util.Stack;
 
 
-//set of text files
-
-
 public class Game {
 	private Board initialBoard;
 	private Board answerBoard;
