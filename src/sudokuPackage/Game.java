@@ -80,7 +80,7 @@ public class Game {
 	  (For now just prints a string with some statistics) */
 	public boolean hasWon() {
 		if(initialBoard.equals(answerBoard)) {
-			System.out.println("Congrats good job, you won! :^)");
+			System.out.println("Game over!");
 			return true;
 		}
 		return false;
@@ -148,7 +148,7 @@ public class Game {
 				System.out.println(e.getMessage());
 			}
 		}
-		System.out.println("Game over! \n To see moves, click m or any other key to end the game");
+		System.out.println("To see moves, enter 'm'. Enter any other character to end the game: ");
 		if(move.next().equals("m")) {
 			while(!moves.isEmpty()) {
 				Move m = moves.pop();
@@ -157,7 +157,6 @@ public class Game {
 			
 		}
 		initialBoard.printBoard();
-		System.out.println("Game over!");
 		move.close();
 	}
 }
