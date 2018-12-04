@@ -86,7 +86,7 @@ public class Game {
 	/* Gets user input (changes cells, calls howAmIDoing, etc.) */
 	public void getUserInput(Scanner scn) throws Exception{
 		System.out.println("Choose a command: \n" + "1. Change a cell\n" + "2. How am I doing?\n" + 
-				"3. Hint\n" + 
+				"3. Hint" +"(" + hint + ") " + "\n" + 
 				"4. Save (this will overwrite your previous save)\n" +
 				"5. Exit");
 		
